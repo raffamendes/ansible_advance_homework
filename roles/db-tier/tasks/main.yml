@@ -1,2 +1,10 @@
 ---
 # tasks file for db-tier
+- name: install postgres
+  yum:
+    name: postgresql-server
+    state: latest
+  notify:
+    - Postgres init
+    - Postgres chkconfig
+    - Start/enable postgres
