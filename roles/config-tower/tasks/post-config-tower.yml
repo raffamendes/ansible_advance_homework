@@ -6,7 +6,7 @@
     state: present
     scm_branch: master
     scm_type: git
-    scm_url: https://github.com/jkupferer/bad-ansible
+    scm_url: https://github.com/raffamendes/ansible_advance_homework.git
     tower_username: admin
     tower_password: r3dh4t1!    
     tower_host: tower1.97de.example.opentlc.com
