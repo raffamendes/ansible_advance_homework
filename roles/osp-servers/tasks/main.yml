@@ -15,7 +15,7 @@
       curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
     meta: "{{ item.value.meta[0] }}"
-    loop: "{{ osp_servers }}"
+    with_dict: "{{ osp_servers }}"
 
     
 - name: Add floating IP to Servers
@@ -26,7 +26,7 @@
     reuse: yes
     wait: yes
     state: present
-  loop: "{{ osp_servers }}"
+  with_dict: "{{ osp_servers }}"
   register: osp_floating_ip
 
 - name: Wait 300 seconds for port 22 to become open and contain "OpenSSH"
