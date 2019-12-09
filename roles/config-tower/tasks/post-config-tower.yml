@@ -1,4 +1,16 @@
 - name: Create Homework Assignment project 
+  tower_project:
+    name: "{{ proj_name}}"
+    description: "Advanced Ansible SP December Rmendes Project"
+    organization: "Default"
+    state: present
+    scm_branch: master
+    scm_type: git
+    scm_url: https://github.com/jkupferer/bad-ansible
+    tower_username: admin
+    tower_password: r3dh4t1!    
+    tower_host: tower1.97de.example.opentlc.com
+    
 # Use tower module or tower-cli to create Ansible Tower project. Name of the project is specifed in ./vars/main.yml
 
 - name: Machine Credentail to connect to workstation using openstack.pub
@@ -10,7 +22,7 @@
     tower_host: tower1.{{tower_GUID}}.example.opentlc.com
     tower_username: admin
     tower_password: r3dh4t1!
-    ssh_key_data: "/root/.ssh/openstack.pem"
+    ssh_key_data: "{{ lookup('file','/root/.ssh/openstack.pem') }}"
     username: cloud-user
 
 - name: Create Inventory
