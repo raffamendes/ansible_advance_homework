@@ -5,4 +5,5 @@ version: '1'
 tools:
   ansibleLint:
     files:
-      - **/*.yml
+      - *.yml
+      - roles/
